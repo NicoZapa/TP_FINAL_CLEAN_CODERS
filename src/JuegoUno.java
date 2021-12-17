@@ -1,15 +1,9 @@
 import java.util.Scanner;
 
 public class JuegoUno {
-    public static boolean isPartidaAcabada() {
-        return partidaAcabada;
-    }
-
-    public static void setPartidaAcabada(boolean partidaAcabada) {
-        JuegoUno.partidaAcabada = partidaAcabada;
-    }
 
     private static boolean partidaAcabada = false;
+
     public static void nuevaPartida() {
         MesaJuego mesaJuego = new MesaJuego();
         Scanner in = new Scanner(System.in);
@@ -74,7 +68,7 @@ public class JuegoUno {
                             cartasAgarradas = true;
                         }
                         if (cartasAgarradas) {
-                            System.out.println("No se pueden agarrar más cartas.");
+                            break;
                         }
                         break;
                     case 3:
@@ -96,6 +90,7 @@ public class JuegoUno {
                             switch (opcionMenu) {
                                 case 1:
                                     System.out.println("Partida guardada exitosamente.");
+                                    mesaJuego.guardado();
                                     break;
                                 case 2:
                                     System.out.println("Saliendo de la partida...");

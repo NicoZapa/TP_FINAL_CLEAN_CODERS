@@ -1,4 +1,4 @@
-/*
+package UNO;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -78,7 +78,9 @@ public class MesaPanel  extends JPanel {
         //esto todavia no funciona, pero es para cuando se haga "clic" en el mazo
         mazoPanel.addMouseListener(new MouseListener() {
             @Override public void mouseClicked(MouseEvent e) {}
-            @Override public void mousePressed(MouseEvent e) {}
+            @Override public void mousePressed(MouseEvent e) {
+                //mazoClickeado(carta, mesaPanel);
+            }
             @Override public void mouseReleased(MouseEvent e) {}
             @Override public void mouseEntered(MouseEvent e) {}
             @Override public void mouseExited(MouseEvent e) {}
@@ -99,17 +101,19 @@ public class MesaPanel  extends JPanel {
 
         //imagen para cada jugador
         String jugadorIcon = null;
-            if (juego.jugador1.getNombre().equals("Jugador 1")) {
-                jugadorIcon = "images/jugador1.png";
-            } else if (juego.jugador2.getNombre().equals("Jugador 2")) {
-                jugadorIcon = "images/jugador2.png";
-            }
+        if (juego.jugadores.get(0).getNombre().equals("Jugador 1")) {
+            jugadorIcon = "images/jugador1.png";
+        } else if (juego.jugadores.get(1).getNombre().equals("Jugador 2")) {
+            jugadorIcon = "images/jugador2.png";
+        }
+
         Image cartaImage = ImageIO.read(new File(jugadorIcon));
         ImageIcon cartaIcon = new ImageIcon(cartaImage.getScaledInstance(100, 100, Image.SCALE_SMOOTH));
         JLabel cartaLabel = new JLabel();
         cartaLabel.setIcon(cartaIcon);
         jugadorPanel.add(cartaLabel);
         return jugadorPanel;
+
     }
 
     //PANEL DE LAS CARTAS
@@ -217,34 +221,34 @@ public class MesaPanel  extends JPanel {
             mano2Panel.add(getCartaPanel(carta));
         }
         mazoPanel.add(getMazoPanel(juego));
-        jugador1Panel.add(getJugadorPanel(juego.jugador1));
-        jugador2Panel.add(getJugadorPanel(juego.jugador2));
+        jugador1Panel.add(getJugadorPanel(juego.jugadores.get(0)));
+        jugador2Panel.add(getJugadorPanel(juego.jugadores.get(1)));
 
     }
 
     //FUNCION PARA CUANDO SE HACE CLIC EN LAS CARTAS
     void cartaClickeada(CartaUno carta, JPanel panel) {
-        if (juego.jugador1.getCartasMano().indexOf(carta) >= 0) {
+        if (juego.jugadores.get(0).getCartasMano().indexOf(carta) >= 0) {
             mano1Panel.remove(panel);
             mano1Panel.repaint();
-            juego.jugador1.getCartasMano().remove(carta);
+            juego.jugadores.get(0).getCartasMano().remove(carta);
             mesaPanel.add(panel);
             //descarte.add(carta);
             mesaPanel.repaint();
-        } else if (juego.jugador2.getCartasMano().indexOf(carta) >= 0) {
+        } else if (juego.jugadores.get(1).getCartasMano().indexOf(carta) >= 0) {
             mano2Panel.remove(panel);
             mano2Panel.repaint();
-            juego.jugador2.getCartasMano().remove(carta);
+            juego.jugadores.get(1).getCartasMano().remove(carta);
             mesaPanel.add(panel);
             //descarte.add(carta);
             mesaPanel.repaint();
         }
     }
+
     //ESTO NO FUNCIONA TODAVÍA
-   /*void mazoClickeado(MazoUno mazo, JPanel panel) throws IOException {
+   /*void mazoClickeado(CartaUno carta, JPanel panel) throws IOException {
         juego.jugadores.get(0).setCartasMano(juego.mazo.darCarta());
         jugador1Panel.add(panel);
         jugador1Panel.repaint();
     }
 }
-*/

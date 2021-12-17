@@ -84,4 +84,14 @@ public class MazoUno{
             i++;
         }
     }
+
+    public List<CartaUno> getCartasMazo(){
+        return mazo;
+    }
+
+    public List<CartaUno> getPilaDescarte(){
+        return pilaDescarte;
+    }
+
+
 }

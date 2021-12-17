@@ -1,4 +1,4 @@
-/*package UNO;
+package UNO;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
@@ -14,4 +14,3 @@ public class MainVentanaUNO extends JFrame {
         pack();
     }
 }
-*/

@@ -28,7 +28,19 @@ public class CartaUno {
 
     @Override
     public String toString() {
-        return this.numero + " " + this.color;
+        String tipoCarta;
+        if (this.numero <= 9) return this.numero + " " + this.color;
+        else if (this.numero == 10) tipoCarta = "CAMBIO SENTIDO";
+        else if (this.numero == 11) tipoCarta = "+2";
+        else if (this.numero == 12) tipoCarta = "BLOQUEO";
+        else if (this.numero == 13) tipoCarta = "+4";
+        else tipoCarta = "CAMBIA COLOR";
+
+        if (this.getNumero() == 13 || this.getNumero() == 14) {
+            return tipoCarta;
+        } else {
+            return tipoCarta + " " + this.getColor();
+        }
     }
 
     public boolean isCarta0al9(CartaUno cartaActiva) {

@@ -1,3 +1,12 @@
+import jdk.nashorn.internal.parser.JSONParser;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.*;
 
 public class MesaJuego {
@@ -35,11 +44,11 @@ public class MesaJuego {
 
         //REPARTIMOS LAS CARTAS A CADA JUGADOR
         repartir();
+        cartaActiva = mazo.darCarta();
+        while (cartaActiva.getNumero() == 13 || cartaActiva.getNumero() == 14) {
             cartaActiva = mazo.darCarta();
-            while(cartaActiva.getNumero() == 13 || cartaActiva.getNumero() == 14) {
-                cartaActiva = mazo.darCarta();
-                break;
-            }
+            break;
+        }
     }
 
     private void repartir() {
@@ -145,7 +154,7 @@ public class MesaJuego {
     }
 
     public void efectoBloqueoCambioSentido() {
-        if(cartaActiva.getNumero() == 10) {
+        if (cartaActiva.getNumero() == 10) {
             System.out.println("USASTE UN CAMBIO DE SENTIDO!");
         } else {
             System.out.println("USASTE UN BLOQUEO DE TURNO!");
@@ -178,11 +187,98 @@ public class MesaJuego {
             }
         }
     }
-        public void cambiarTurno () {
-            if (turnoJugador == 1) {
-                this.setTurnoJugador(2);
-            } else {
-                this.setTurnoJugador(1);
-            }
+
+    public void cambiarTurno() {
+        if (turnoJugador == 1) {
+            this.setTurnoJugador(2);
+        } else {
+            this.setTurnoJugador(1);
         }
     }
+
+    public void guardado() {
+        //** CARTA ACTIVA
+        JSONObject cartaActiva = new JSONObject();
+        cartaActiva.put("cartaActiva", this.cartaActiva);
+
+        //**MAZO
+        JSONArray mazoAct = new JSONArray();
+        for (CartaUno carta : mazo.getCartasMazo()) {
+            JSONObject cartaMazo = new JSONObject();
+            cartaMazo.put("numero", carta.getNumero());
+            cartaMazo.put("color", carta.getColor());
+            mazoAct.add(cartaMazo);
+        }
+
+        //** PILA DE DESCARTE
+        JSONArray pilaDes = new JSONArray();
+        for (CartaUno carta : mazo.getPilaDescarte()) {
+            JSONObject cartaDescarte = new JSONObject();
+            cartaDescarte.put("numero", carta.getNumero());
+            cartaDescarte.put("color", carta.getColor());
+            pilaDes.add(cartaDescarte);
+        }
+
+        //** MANO DE JUGADORES
+        JSONArray manoj1 = new JSONArray();
+        JSONArray manoj2 = new JSONArray();
+
+        //JUGADOR 1
+        for (CartaUno carta : this.jugadores.get(0).getCartasMano()) {
+            JSONObject carta1 = new JSONObject();
+            carta1.put("numero", carta.getNumero());
+            carta1.put("color", carta.getColor());
+            manoj1.add(carta1);
+        }
+
+        //JUGADOR 2
+        for (CartaUno carta : this.jugadores.get(1).getCartasMano()) {
+            JSONObject carta2 = new JSONObject();
+            carta2.put("numero", carta.getNumero());
+            carta2.put("color", carta.getColor());
+            manoj2.add(carta2);
+        }
+
+        //**TURNO JUGADOR
+        JSONObject turno = new JSONObject();
+        turno.put("Turno", this.turnoJugador);
+
+
+        //**GUARDAMOS TODO
+        JSONObject objeto = new JSONObject();
+        objeto.put("cartaActivaActual", cartaActiva);
+        objeto.put("mazoActual", mazoAct);
+        objeto.put("manoJ1", manoj1);
+        objeto.put("pilaDescarteActual", pilaDes);
+        objeto.put("manoJ2", manoj2);
+        objeto.put("turnoActual", turno);
+
+        //** GUARDAMOS EN ARCHIVO .JSON
+        try (FileWriter file = new FileWriter("guardado.json")) {
+            file.write(objeto.toJSONString());
+            file.flush();
+            file.close();
+        } catch (IOException e) {
+            System.out.println("ARCHIVO NO ENCONTRADO");
+        }
+    }
+/*
+    public void cargarPartida() {
+        try {
+            FileReader reader = new FileReader("guardado.json");
+
+            JSONObject parser = new JSONParser();
+
+            JSONObject objeto = (JSONObject) parser.parse(reader);
+
+            cartaActiva = (CartaUno) objeto.get("cartaActivaActual");
+            turnoJugador = (int) objeto.get("turnoActual");
+
+        } catch (IOException e) {
+            System.out.println("ERROR EN EL ARCHIVO " + e.getMessage());
+        } catch (ParseException e) {
+            System.out.println("ERROR EN EL PARSEO " + e.getMessage());
+        }
+    }
+    */
+}

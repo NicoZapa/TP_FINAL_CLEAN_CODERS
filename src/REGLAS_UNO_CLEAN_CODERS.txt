@@ -1,46 +1,43 @@
 --- REGLAS DEL UNO - CLEAN CODERS ---
 
-HAY 112 CARTAS -> 24 CARTAS DE CADA COLOR, 8 CARTAS ESPECIALES, Y 8 CARTAS NEGRAS.
+Hay 112 cartas -> 24 cartas de cada color, 8 cartas especiales, y 8 cartas negras.
 
-LA PARTIDA COMIENZA REPARTIENDOSE A CADA JUGADOR 7 CARTAS, LUEGO DE HABERSE MEZCLADO EL MAZO, Y SE LEVANTA
-UNA CARTA DEL PILON, CON LA QUE SE COMENZARÁ EL JUEGO.
+La partida comienza repartiéndose a cada jugador 7 cartas, luego de haberse mezclado el mazo, y se levanta una carta del mazo, con la que se comenzará el juego.
+
 
 --- TIPOS DE CARTAS ---
 
-CADA JUGADOR PUEDE TENER 3 TIPOS DE CARTAS.
+Cada jugador puede tener 3 tipos de cartas.
 
-CARTAS COMUNES: ESTAS VAN DEL 0 AL 9 Y POSEEN UN COLOR. NO TIENEN NINGUNA HABILIDAD ESPECIAL.
-PARA PODER TIRARLAS ES NECESARIO TENER UN COLOR O NÚMERO IGUALES A LOS DE LA CARTA ACTIVA (ES DECIR, LA CARTA
-QUE ESTÁ EN LA MESA).
+CARTAS COMUNES: Van del 0 al 9 y poseen un color. No tienen ninguna habilidad especial. Para poder tirarlas es necesario tener un color o número iguales a los de la carta activa (es decir, la carta que está en la mesa).
 
-CARTAS ESPECIALES: ESTAS VAN DEL 10 AL 12. INCLUYEN LA CARTA BLOQUEO (10), MAS DOS (11), Y CAMBIO DE SENTIDO (12).
-PARA PODER TIRARLAS ES NECESARIO TENER, AL IGUAL QUE LAS CARTAS COMUNES, EL MISMO NÚMERO (QUE REPRESENTA AL
-SÍMBOLO), O EL MISMO COLOR.
+CARTAS ESPECIALES: Van del 10 al 12. Incluyen la carta bloqueo (10), más dos (11), y cambio de sentido (12). Para poder tirarlas es necesario tener, al igual que las cartas comunes, el mismo número (que representa al símbolo), o el mismo color.
 
-CARTAS NEGRAS: ESTAS SE CONFORMAN POR SOLO DOS TIPOS DE CARTAS, MAS CUATRO (13) Y CAMBIO DE COLOR (14).
-PARA PODER TIRARLAS NO HACE FALTA CUMPLIR CON NINGUN REQUISITO. PUEDEN UTILIZARSE SOBRE CUALQUIER CARTA QUE ESTE
-EN LA MESA.
+CARTAS NEGRAS: Se conforman por solo dos tipos de cartas, más cuatro (13) y cambio de color (14). Para poder tirarlas no hace falta cumplir con ningún requisito. Pueden utilizarse sobre cualquier carta que esté en la mesa.
 
---- HABILIDADES DE CADA CARTA ESPECIAL Y NEGRA ---
 
-BLOQUEO (10) > BLOQUEA EL TURNO AL JUGADOR CONTRINCANTE.
-MAS DOS (11) > AGREGA DOS CARTAS AL JUGADOR CONTRINCANTE.
-CAMBIO DE SENTIDO (12) > CAMBIA EL SENTIDO EN EL QUE SE JUEGA LA PARTIDA. (EN LA VERSION UNO DE 2 JUGADORES
-CUMPLE LA MISMA FUNCION QUE LA CARTA DE BLOQUEO).
-MAS CUATRO (13) > AGREGA CUATRO CARTAS AL JUGADOR CONTRINCANTE Y PERMITE CAMBIAR EL COLOR DE LA PARTIDA,
-ES DECIR, EL COLOR CON EL QUE SE DEBERA JUGAR LA PROXIMA CARTA (ESTE ULTIMO, MOVIMIENTO NO AFECTA A LAS CARTAS
-NEGRAS, YA QUE TAMBIEN PERMITEN CAMBIAR DE COLOR).
-CAMBIO DE COLOR (14) > CAMBIA EL COLOR DE LA PARTIDA, ES DECIR EL COLOR CON EL QUE SE DEBERA JUGAR LA SIGUIENTE
-CARTA (ESTE MOVIMIENTO NO AFECTA A LAS CARTAS NEGRAS, YA QUE TAMBIEN PERMITEN CAMBIAR DE COLOR).
+--- HABILIDADES DE CADA CARTA: ESPECIALES Y NEGRAS ---
+
+BLOQUEO (10) -> Bloquea el turno al jugador contrincante.
+
+MÁS DOS (11) -> Agrega dos cartas al jugador contrincante.
+
+CAMBIO DE SENTIDO (12) -> Cambia el sentido en el que se juega la partida (en la versión UNO de 2 jugadores cumple la misma función que la carta de bloqueo).
+
+MÁS CUATRO (13) -> Agrega cuatro cartas al jugador contrincante y permite cambiar el color de la partida, es decir, el color con el que se deberá jugar la próxima carta (este último, movimiento no afecta a las cartas Negras, ya que también permiten cambiar de color).
+
+CAMBIO DE COLOR (14) -> Cambia el color de la partida, es decir, el color con el que se deberá jugar la siguiente carta (este movimiento no afecta a las cartas Negras, ya que también permiten cambiar de color).
+
 
 --- OBJETIVO DEL JUEGO ---
 
-CADA JUGADOR DEBERA UTILIZAR ESTRATEGICAMENTE SUS CARTAS PARA GANAR LA PARTIDA. EL PRIMER JUGADOR EN QUEDARSE SIN
-CARTAS ES EL GANADOR.
+Cada jugador deberá utilizar estratégicamente sus cartas para ganar la partida. El primer jugador en quedarse sin cartas es el ganador.
+
 
 --- HABILIDADES QUE PUEDE HACER CADA JUGADOR ---
 
-TIRAR UNA CARTA > SOLO SE PUEDE TIRAR UNA VEZ POR TURNO.
-AGARRAR UNA CARTA DEL MAZO > SOLO SE PUEDE AGARRAR UNA CARTA POR TURNO Y PARA ELLO, EL JUGADOR NO DEBE TENER 
-CARTAS DISPONIBLES PARA TIRAR.
-PASAR > SOLO SE PUEDE PASAR EL TURNO SI SE AGARRÓ UNA CARTA ANTERIORMENTE.
+TIRAR UNA CARTA -> Solo se puede tirar una vez por turno.
+
+AGARRAR UNA CARTA DEL MAZO -> Solo se puede agarrar una carta por turno y para ello, el jugador no debe tener cartas disponibles para tirar.
+
+PASAR -> Solo se puede pasar el turno si se agarró una carta anteriormente.
